@@ -138,7 +138,10 @@ bool QMqttConnection::ensureTransport(bool createSecureIfNeeded)
 
     if (m_transport) {
         if (m_ownTransport)
+        {
             delete m_transport;
+            m_transport = nullptr;
+        }
         else
             return true;
     }
